@@ -39,12 +39,20 @@
   },
   "tickets": {
     "status": "soon",
+    "provider": "pretix",
     "buttonText": "Get Tickets",
-    "url": ""
+    "url": "",
+    "pretixUrl": "https://pretix.eu/devfest-berlin/2026/",
+    "bevyUrl": "https://gdg.community.dev/events/details/google-gdg-berlin-presents-devfest-berlin-2026/",
+    "comment": "Set url to pretixUrl or bevyUrl and flip status to 'open' when ticketing goes live"
   },
   "navigation": [
     { "label": "About", "url": "/#about" },
+    { "label": "Tracks", "url": "/#tracks" },
+    { "label": "Hackathon", "url": "/#hackathon" },
+    { "label": "Vibe Lounge", "url": "/#vibe-lounge" },
     { "label": "Venue", "url": "/#venue" },
+    { "label": "FAQ", "url": "/#faq" },
     { "label": "Organizers", "url": "/#organizers" },
     { "label": "Sponsors", "url": "/sponsors/" }
   ],
