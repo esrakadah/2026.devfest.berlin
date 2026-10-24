@@ -352,13 +352,26 @@
     });
 })();
 
-// Click-to-load embeds (sponsorship deck)
+// Click-to-load embeds (sponsorship deck & venue map)
 document.querySelectorAll('[data-deck-src]').forEach((btn) => {
   btn.addEventListener('click', () => {
     const f = document.createElement('iframe');
     f.src = btn.dataset.deckSrc;
     f.title = btn.dataset.deckTitle || '';
     f.allowFullscreen = true;
+    f.referrerPolicy = 'no-referrer-when-downgrade';
     btn.closest('.deck-embed').replaceChildren(f);
+  });
+});
+
+// Click-to-load Sessionize embeds (schedule & speaker wall)
+document.querySelectorAll('[data-sessionize-src]').forEach((btn) => {
+  btn.addEventListener('click', () => {
+    const container = btn.closest('[data-sessionize-container]');
+    if (!container) return;
+    const script = document.createElement('script');
+    script.src = btn.dataset.sessionizeSrc;
+    script.async = true;
+    container.replaceChildren(script);
   });
 });

@@ -66,6 +66,75 @@
     "url": "https://sessionize.com/devfest-berlin-2026",
     "deadline": "November 1, 2026"
   },
+  "agenda": {
+    "status": "preview",
+    "sessionizeScheduleEmbedUrl": "",
+    "sessionizeSpeakersEmbedUrl": "",
+    "vibeLoungeBadgeUrl": "https://goo.gle/devfest26-vibe-lounge",
+    "vibeLoungeSlots": [
+      {
+        "time": "11:00 - 11:45",
+        "slot": "Sprint 1",
+        "title": "Backyard Barista & Multimodal Prompts",
+        "focus": "Design and ship a multimodal coffee or food assistant in Google AI Studio with structured JSON output."
+      },
+      {
+        "time": "13:15 - 14:00",
+        "slot": "Sprint 2",
+        "title": "Launch a Multiplayer Game with AI",
+        "focus": "Generate a 2-player browser or Flutter game and deploy it live to a shareable URL in one sprint."
+      },
+      {
+        "time": "15:00 - 15:45",
+        "slot": "Sprint 3",
+        "title": "Google Maps & Geolocation AI",
+        "focus": "Combine Google Maps Platform with Gemini grounding to build interactive Berlin discovery tools."
+      },
+      {
+        "time": "16:45 - 17:30",
+        "slot": "Sprint 4",
+        "title": "Agentic Workflows & Badge Showcase",
+        "focus": "Build an agentic workflow, demo your prototype to on-site mentors, and claim the official Vibe Lounge badge."
+      }
+    ],
+    "dayTimeline": [
+      {
+        "time": "09:00",
+        "title": "Doors Open, Badge Pickup & Morning Coffee",
+        "track": "Main Foyer · SRH Berlin"
+      },
+      {
+        "time": "10:00",
+        "title": "Welcome Keynote & Berlin Community Opening",
+        "track": "Keynote Auditorium"
+      },
+      {
+        "time": "11:00",
+        "title": "Morning Talk Tracks, Workshops & Vibe Lounge Sprint 1",
+        "track": "5 Parallel Tracks + Vibe Lounge + Hackathon"
+      },
+      {
+        "time": "12:30",
+        "title": "Lunch Break & Community Networking",
+        "track": "Campus Courtyard & Foyer"
+      },
+      {
+        "time": "13:30",
+        "title": "Afternoon Talk Tracks, Deep-Dive Workshops & Vibe Lounge Sprints 2-3",
+        "track": "5 Parallel Tracks + Vibe Lounge + Hackathon"
+      },
+      {
+        "time": "16:30",
+        "title": "Hackathon Demos, Vibe Lounge Sprint 4 & Closing Keynote",
+        "track": "Keynote Auditorium"
+      },
+      {
+        "time": "17:30",
+        "title": "Evening Networking & Community Social",
+        "track": "SRH Berlin Campus"
+      }
+    ]
+  },
   "tickets": {
     "status": "soon",
     "buttonText": "Get Tickets",
@@ -74,9 +143,10 @@
   "navigation": [
     { "label": "About", "url": "/#about" },
     { "label": "Tracks", "url": "/#tracks" },
+    { "label": "Agenda", "url": "/agenda/" },
+    { "label": "Vibe Lounge", "url": "/#vibe-lounge" },
     { "label": "Venue", "url": "/#venue" },
     { "label": "FAQ", "url": "/#faq" },
-    { "label": "Organizers", "url": "/#organizers" },
     { "label": "Sponsors", "url": "/sponsors/" },
     { "label": "Gallery", "url": "/gallery/" }
   ],

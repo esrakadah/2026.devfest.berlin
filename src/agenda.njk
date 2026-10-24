@@ -1,0 +1,126 @@
+---
+layout: page.njk
+title: "Speakers & Agenda"
+description: "Full-day conference schedule, five technical tracks, and guided Vibe Lounge sprints at SRH Berlin on November 14, 2026."
+permalink: /agenda/
+---
+
+{% set cfpOpen = site.cfp.status == "open" and site.cfp.url %}
+
+<div class="agenda-page-intro">
+    <p>
+        DevFest Berlin 2026 brings five curated technical tracks, an all-day campus hackathon, and four guided
+        <strong>Vibe Lounge</strong> sprints to <strong>{{ site.venue.name }}</strong> ({{ site.venue.streetAddress }},
+        {{ site.venue.postalCode }} Berlin) on <strong>{{ site.date }}</strong>.
+    </p>
+</div>
+
+{% if cfpOpen %}
+<div class="agenda-status-banner">
+    <div class="agenda-status-content">
+        <span class="venue-badge">Call for Speakers Open</span>
+        <h3>Speaker lineup &amp; session slots announcing in early November</h3>
+        <p>
+            Our Call for Speakers on Sessionize is open until <strong>{{ site.cfp.deadline }} at 23:59 CET</strong>.
+            The content committee is reviewing submissions across AI, Cloud, Mobile, Career, and Hardware tracks.
+        </p>
+    </div>
+    <div class="agenda-status-actions">
+        <a class="sponsor-button" href="{{ site.cfp.url }}" target="_blank" rel="noopener">{{ site.cfp.buttonText }}</a>
+        <a class="venue-btn is-calendar" href="{{ site.calendarUrl }}" target="_blank" rel="noopener">Add Date to Calendar</a>
+    </div>
+</div>
+{% endif %}
+
+{% if site.agenda.sessionizeScheduleEmbedUrl %}
+<h2 id="sessionize-schedule">Conference Schedule</h2>
+<div class="sessionize-embed-box" data-sessionize-container>
+    <button
+        type="button"
+        class="gh-head-button"
+        data-sessionize-src="{{ site.agenda.sessionizeScheduleEmbedUrl }}"
+    >
+        Load full schedule from Sessionize
+    </button>
+    <p><small>Loading the interactive schedule connects to Sessionize. See our <a href="/datenschutz/#embeds">privacy notice</a>.</small></p>
+</div>
+{% endif %}
+
+{% if site.agenda.sessionizeSpeakersEmbedUrl %}
+<h2 id="sessionize-speakers">Confirmed Speakers</h2>
+<div class="sessionize-embed-box" data-sessionize-container>
+    <button
+        type="button"
+        class="gh-head-button"
+        data-sessionize-src="{{ site.agenda.sessionizeSpeakersEmbedUrl }}"
+    >
+        Load speaker directory from Sessionize
+    </button>
+    <p><small>Loading the speaker wall connects to Sessionize. See our <a href="/datenschutz/#embeds">privacy notice</a>.</small></p>
+</div>
+{% endif %}
+
+<h2 id="day-timeline">Day at a Glance (Saturday, November 14, 2026)</h2>
+<p>
+    Doors open at 09:00 CET at SRH Berlin in Neukölln. Exact room assignments and individual talk slots will appear here as soon as speaker confirmations wrap up.
+</p>
+
+<div class="agenda-timeline" role="list">
+    {% for slot in site.agenda.dayTimeline %}
+    <div class="agenda-timeline-item" role="listitem">
+        <div class="agenda-timeline-time">{{ slot.time }}</div>
+        <div class="agenda-timeline-body">
+            <h3 class="agenda-timeline-title">{{ slot.title }}</h3>
+            <span class="agenda-timeline-track">{{ slot.track }}</span>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+
+<h2 id="vibe-lounge-schedule">Official DevFest Vibe Lounge Schedule (11:00 to 17:30)</h2>
+<p>
+    The Vibe Lounge runs four guided 45-minute hands-on sprints throughout the day. Drop in with your laptop, build a live AI prototype with Google AI Studio and Gemini alongside community mentors, and claim the official DevFest 2026 Vibe Lounge badge.
+</p>
+
+<div class="agenda-vibe-grid">
+    {% for sprint in site.agenda.vibeLoungeSlots %}
+    <div class="agenda-vibe-card">
+        <div class="agenda-vibe-header">
+            <span class="venue-badge">{{ sprint.slot }}</span>
+            <span class="agenda-vibe-time">{{ sprint.time }}</span>
+        </div>
+        <h3>{{ sprint.title }}</h3>
+        <p>{{ sprint.focus }}</p>
+    </div>
+    {% endfor %}
+</div>
+
+<p style="margin-top: 24px;">
+    <a class="sponsor-button" href="{{ site.agenda.vibeLoungeBadgeUrl }}" target="_blank" rel="noopener">
+        Open Official Vibe Lounge Guide (goo.gle/devfest26-vibe-lounge)
+    </a>
+</p>
+
+<h2 id="tracks-overview">Five Conference Tracks</h2>
+<p>
+    Sessions at DevFest Berlin 2026 are organized across five community-curated tracks plus our all-day campus hackathon:
+</p>
+<ul>
+    <li><strong>AI &amp; Machine Learning:</strong> Practical agentic workflows, Gemini, Vertex AI, TensorFlow, PyTorch, and responsible AI engineering.</li>
+    <li><strong>Cloud &amp; Security:</strong> Google Cloud, Kubernetes, multi-cloud operations, DevSecOps, and infrastructure defense.</li>
+    <li><strong>Languages &amp; Mobile:</strong> Flutter, Dart, Android, Kotlin, Go, and modern cross-platform architecture.</li>
+    <li><strong>Career &amp; Practices:</strong> Engineering leadership, IC vs. management paths, product design, and team culture.</li>
+    <li><strong>Robotics &amp; Hardware:</strong> Edge AI, IoT systems, embedded devices, and physical computing.</li>
+</ul>
+
+<div class="sponsor-cta" style="margin-top: 48px;">
+    <h2>Getting to SRH Berlin</h2>
+    <p>
+        {{ site.venue.name }} is located at <strong>{{ site.venue.streetAddress }}, {{ site.venue.postalCode }} Berlin ({{ site.venue.neighborhood }})</strong>, a 5 to 8 minute walk from S Sonnenallee (S41/S42 Ringbahn) and directly served by MetroBus M41.
+    </p>
+    <div style="display: flex; flex-wrap: wrap; gap: 12px; justify-content: center; margin-top: 16px;">
+        <a class="venue-btn is-maps" href="{{ site.venue.mapsUrl }}" target="_blank" rel="noopener">Open in Google Maps</a>
+        <a class="venue-btn is-bvg" href="{{ site.venue.transitUrl }}" target="_blank" rel="noopener">BVG Route Planner</a>
+        <a class="venue-btn is-calendar" href="/#faq">Read Event FAQ</a>
+    </div>
+</div>
