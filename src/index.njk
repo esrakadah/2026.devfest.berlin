@@ -176,7 +176,7 @@ bodyClass: "home-template is-head-left-logo has-cover"
                     </div>
                     <h3 class="track-title">Cloud &amp; Security</h3>
                     <p class="track-description">
-                        GCP, multi-cloud architectures, cybersecurity, DevSecOps, and robust infrastructure threat defense.
+                        GCP, multi-cloud architectures, cybersecurity, DevSecOps, and production infrastructure threat defense.
                     </p>
                     <ul class="track-tags">
                         <li>
@@ -307,13 +307,94 @@ bodyClass: "home-template is-head-left-logo has-cover"
 
             <div class="tracks-cta">
                 <p>Have an insight, case study, or deep dive to share with Berlin's tech community?</p>
-                <a class="track-cta-button" href="{{ site.cfp.url }}" target="_blank" rel="noopener">
-                    <span>Submit Your Talk on Sessionize</span>
-                    <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
-                </a>
-                <span class="track-cta-deadline">CFP closes November 1, 2026 at 23:59 CET</span>
+                <div style="display: flex; flex-wrap: wrap; gap: 12px; justify-content: center;">
+                    <a class="track-cta-button" href="{{ site.cfp.url }}" target="_blank" rel="noopener">
+                        <span>Submit Your Talk on Sessionize</span>
+                        <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+                    </a>
+                    <a class="track-cta-button is-outline" href="/agenda/">
+                        <span>Preview Day Schedule &amp; Vibe Lounge</span>
+                    </a>
+                </div>
+                <span class="track-cta-deadline">CFP open on Sessionize until {{ site.cfp.deadline }} at 23:59 CET</span>
             </div>
             {% endif %}
+        </div>
+    </section>
+
+    <!-- Vibe Lounge & Hackathon Experience Section -->
+    <section id="vibe-lounge" class="outer vibe-section">
+        <div class="inner">
+            <div class="section-header">
+                <h2 class="section-title">Vibe Lounge &amp; Hands-On Building</h2>
+                <p class="section-subtitle">
+                    Drop into guided 45-minute AI building sprints or team up in our all-day campus hackathon at SRH Berlin.
+                </p>
+            </div>
+
+            <div class="vibe-showcase-grid">
+                <div class="vibe-card is-primary">
+                    <div class="vibe-card-top">
+                        <span class="vibe-pill">4 x 45-Min Guided Sprints • 11:00 to 17:30</span>
+                        <h3 class="vibe-card-title">Official DevFest Vibe Lounge</h3>
+                        <p class="vibe-card-desc">
+                            Step into a mentored hands-on space powered by Google AI Studio and Gemini. Pick a 45-minute slot, build and deploy a working prototype on the spot, and earn the official DevFest 2026 Vibe Lounge badge.
+                        </p>
+                    </div>
+
+                    <div class="vibe-slots-mini">
+                        {% for item in site.agenda.vibeLoungeSlots %}
+                        <div class="vibe-slot-row">
+                            <span class="vibe-slot-time">{{ item.time }}</span>
+                            <div class="vibe-slot-info">
+                                <strong>{{ item.slot }}: {{ item.title }}</strong>
+                                <span>{{ item.focus }}</span>
+                            </div>
+                        </div>
+                        {% endfor %}
+                    </div>
+
+                    <div class="vibe-card-actions">
+                        <a class="venue-btn is-maps" href="{{ site.agenda.vibeLoungeBadgeUrl }}" target="_blank" rel="noopener">
+                            <span>Official Vibe Lounge Guide (goo.gle)</span>
+                        </a>
+                        <a class="venue-btn is-calendar" href="/agenda/#vibe-lounge-schedule">
+                            <span>Full Sprint Schedule</span>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="vibe-card is-secondary">
+                    <div class="vibe-card-top">
+                        <span class="vibe-pill is-green">All-Day Campus Track</span>
+                        <h3 class="vibe-card-title">DevFest Berlin Hackathon</h3>
+                        <p class="vibe-card-desc">
+                            Collaborate with engineers, designers, and students from GDG on Campus SRH Berlin to build practical software prototypes and pitch them live on stage before the closing keynote.
+                        </p>
+                    </div>
+
+                    <ul class="vibe-feature-list">
+                        <li>
+                            <strong>Platform Credits &amp; Tooling:</strong> On-site access to Google Cloud credits, Gemini API keys, and rapid prototyping tools.
+                        </li>
+                        <li>
+                            <strong>Mentors from 7 Communities:</strong> Hands-on architecture and code guidance from Google Developer Experts and local chapter leads.
+                        </li>
+                        <li>
+                            <strong>Beginner &amp; Student Friendly:</strong> Form a team on the morning of November 14 or register with friends. Dedicated student ticket allocations available.
+                        </li>
+                        <li>
+                            <strong>Stage Demos:</strong> Top teams showcase their working builds during the 16:30 afternoon plenary session.
+                        </li>
+                    </ul>
+
+                    <div class="vibe-card-actions">
+                        <a class="venue-btn is-calendar" href="/agenda/">
+                            <span>View Full Day Timeline &rarr;</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
 
@@ -321,8 +402,8 @@ bodyClass: "home-template is-head-left-logo has-cover"
     <section id="venue" class="outer venue-section">
         <div class="inner">
             <div class="section-header">
-                <h2 class="section-title">Date & Location</h2>
-                <p class="section-subtitle">Join us at the cutting-edge SRH Berlin campus in Neukölln for DevFest Berlin 2026.</p>
+                <h2 class="section-title">Date &amp; Location</h2>
+                <p class="section-subtitle">Join us at the modern SRH Berlin campus in Neukölln for DevFest Berlin 2026.</p>
             </div>
 
             <div class="venue-showcase-container">
@@ -399,7 +480,7 @@ bodyClass: "home-template is-head-left-logo has-cover"
                             <div class="transit-pill s-bahn">S-Bahn</div>
                             <div class="transit-route-details">
                                 <div class="transit-route-lines"><strong>S41, S42 (Ringbahn), S45, S46, S47</strong></div>
-                                <div class="transit-route-desc">Exit at <strong>S Sonnenallee</strong> or <strong>S Köllnische Heide</strong> (5&ndash;8 min walk)</div>
+                                <div class="transit-route-desc">Exit at <strong>S Sonnenallee</strong> or <strong>S Köllnische Heide</strong> (5 to 8 min walk)</div>
                             </div>
                         </div>
 
@@ -461,7 +542,7 @@ bodyClass: "home-template is-head-left-logo has-cover"
                         </p>
                         <p>
                             <strong>Public Transit:</strong><br>
-                            &bull; <strong>S-Bahn:</strong> S41, S42 (Ringbahn), S45, S46, S47 (Station <em>S Sonnenallee</em> or <em>S Köllnische Heide</em>, ~5–8 min walk).<br>
+                            &bull; <strong>S-Bahn:</strong> S41, S42 (Ringbahn), S45, S46, S47 (Station <em>S Sonnenallee</em> or <em>S Köllnische Heide</em>, 5 to 8 min walk).<br>
                             &bull; <strong>Bus:</strong> M41 (direct connection from Berlin Hauptbahnhof, Potsdamer Platz, and Hermannplatz).
                         </p>
                     </div>
@@ -471,9 +552,9 @@ bodyClass: "home-template is-head-left-logo has-cover"
                     <summary>When does the Call for Speakers (CFP) close?</summary>
                     <div class="faq-answer">
                         <p>
-                            The Call for Speakers is open through <strong>November 1, 2026 at 11:59 PM CET</strong>.
+                            The Call for Speakers is open through <strong>{{ site.cfp.deadline }} at 11:59 PM CET</strong>.
                             You can submit talk proposals directly on <a href="{{ site.cfp.url }}" target="_blank" rel="noopener">Sessionize</a>.
-                            Speaker selections and schedule announcements will follow in early November.
+                            Speaker selections and schedule announcements will follow in early November on the <a href="/agenda/">Speakers &amp; Agenda</a> page.
                         </p>
                     </div>
                 </details>
@@ -482,8 +563,38 @@ bodyClass: "home-template is-head-left-logo has-cover"
                     <summary>Who can submit a talk proposal?</summary>
                     <div class="faq-answer">
                         <p>
-                            We warmly encourage speakers of all backgrounds, genders, and experience levels—including first-time speakers.
+                            We warmly encourage speakers of all backgrounds, genders, and experience levels, including first-time speakers.
                             Whether you are presenting a beginner-friendly introduction or a deep technical dive, our community welcomes your perspective.
+                        </p>
+                    </div>
+                </details>
+
+                <details class="faq-item">
+                    <summary>What is the Vibe Lounge and do I need prior coding experience?</summary>
+                    <div class="faq-answer">
+                        <p>
+                            The Vibe Lounge is an interactive 45-minute building sprint running in four slots between <strong>11:00 and 17:30</strong> where attendees get hands-on with Google Gemini and Google AI Studio.
+                            No prior coding experience is required. On-site mentors guide you through prompt design, app generation, and deploying working prototypes, and completing a challenge earns you the official <a href="{{ site.agenda.vibeLoungeBadgeUrl }}" target="_blank" rel="noopener">DevFest 2026 Vibe Lounge badge</a>.
+                        </p>
+                    </div>
+                </details>
+
+                <details class="faq-item">
+                    <summary>Are there student tickets and who can join the Hackathon?</summary>
+                    <div class="faq-answer">
+                        <p>
+                            Yes. In partnership with <strong>GDG on Campus SRH Berlin</strong>, we offer dedicated student ticket allocations (bring a valid student ID or university email).
+                            The all-day campus Hackathon is open to all conference attendees: you can form a team on the morning of November 14 or register with friends.
+                        </p>
+                    </div>
+                </details>
+
+                <details class="faq-item">
+                    <summary>Is the SRH Berlin campus wheelchair accessible?</summary>
+                    <div class="faq-answer">
+                        <p>
+                            Yes. The SRH Berlin campus at Sonnenallee 221 is 100% barrier-free with step-free entrances, elevators to all talk and workshop rooms, and accessible restrooms.
+                            If you have specific accessibility or dietary requirements, email us at <a href="mailto:{{ site.contactEmail }}">{{ site.contactEmail }}</a>.
                         </p>
                     </div>
                 </details>
@@ -621,17 +732,17 @@ bodyClass: "home-template is-head-left-logo has-cover"
         </div>
 
         <div class="venue-map-frame-wrapper">
-            <iframe
-                id="venue-map-iframe"
-                title="SRH Berlin Google Maps Location"
-                src="https://maps.google.com/maps?q=SRH+Berlin+University+of+Applied+Sciences,+Sonnenallee+221,+12059+Berlin&t=&z=15&ie=UTF8&iwloc=&output=embed"
-                width="100%"
-                height="380"
-                style="border:0;"
-                allowfullscreen=""
-                loading="lazy"
-                referrerpolicy="no-referrer-when-downgrade"
-            ></iframe>
+            <div class="deck-embed map-consent-embed" style="height: 100%; margin: 0; aspect-ratio: auto;">
+                <button
+                    type="button"
+                    class="gh-head-button"
+                    data-deck-src="https://maps.google.com/maps?q=SRH+Berlin+University+of+Applied+Sciences,+Sonnenallee+221,+12059+Berlin&amp;t=&amp;z=15&amp;ie=UTF8&amp;iwloc=&amp;output=embed"
+                    data-deck-title="SRH Berlin Google Maps Location"
+                >
+                    Load interactive Google Map
+                </button>
+                <p style="margin: 10px 16px 0;"><small>Loading the map connects to Google Maps. See our <a href="/datenschutz/">privacy notice</a>.</small></p>
+            </div>
         </div>
 
         <div class="venue-map-dialog-footer">
