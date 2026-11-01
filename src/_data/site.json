@@ -136,9 +136,12 @@
     ]
   },
   "tickets": {
-    "status": "soon",
+    "status": "open",
     "buttonText": "Get Tickets",
-    "url": ""
+    "url": "https://gdg.community.dev/events/details/google-gdg-berlin-presents-devfest-berlin-2026-1/",
+    "image": "/assets/images/tickets-on-sale.jpg",
+    "headline": "DevFest Berlin 2026: Tickets On Sale Now",
+    "subtitle": "Join us on 14 November 2026 at SRH Berlin for a full day of technical talks, hands-on workshops, exhibitors, and community networking!"
   },
   "navigation": [
     { "label": "About", "url": "/#about" },
@@ -225,8 +228,8 @@
   "newsletter": {
     "action": "https://docs.google.com/forms/d/e/1FAIpQLSfJYZ1P-QigUq4ce4GokypPLO1-5Ck-qZeumneCEkZ6eZrQrQ/formResponse",
     "emailFieldName": "entry.464015783",
-    "title": "Stay tuned for DevFest Berlin 2026",
-    "description": "Be the first to hear when ticket registration opens, speaker lineups are revealed, and full schedule details go live for November 14th at SRH Berlin.",
+    "title": "Stay updated on DevFest Berlin 2026",
+    "description": "Tickets are on sale now! Subscribe for speaker lineup reveals, full schedule announcements, and event day updates for November 14th at SRH Berlin.",
     "buttonText": "Notify Me",
     "privacyNote": "We only email you about DevFest Berlin. Your address is stored with Google Forms, and you can unsubscribe at any time."
   }

@@ -51,7 +51,10 @@ bodyClass: "home-template is-head-left-logo has-cover"
         {% set ticketsOpen = site.tickets.status == "open" and site.tickets.url %}
         <div class="hero-actions">
             {% if ticketsOpen %}
-            <a class="hero-button" href="{{ site.tickets.url }}" target="_blank" rel="noopener">{{ site.tickets.buttonText }}</a>
+            <a class="hero-button is-earlybird" href="{{ site.tickets.url }}" target="_blank" rel="noopener">
+                <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 9a3 3 0 0 1 0 6v2a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-2a3 3 0 0 1 0-6V7a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2Z"/><line x1="13" y1="5" x2="13" y2="19" stroke-dasharray="2"/></svg>
+                <span>{{ site.tickets.buttonText }}</span>
+            </a>
             {% else %}
             <button type="button" class="hero-button is-earlybird" id="open-earlybird-modal" aria-haspopup="dialog" aria-controls="earlybird-modal">
                 <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg>
@@ -68,7 +71,11 @@ bodyClass: "home-template is-head-left-logo has-cover"
             </a>
             {% endif %}
         </div>
-        {% if cfpOpen and site.cfp.deadline %}
+        {% if ticketsOpen %}
+        <p class="hero-note">
+            <strong>Tickets on sale now:</strong> Early Bird available for 1 week only (best price), followed by 1 week of Regular tickets.{% if cfpOpen and site.cfp.deadline %} &bull; {{ site.cfp.label }} open until {{ site.cfp.deadline }}{% endif %}
+        </p>
+        {% elif cfpOpen and site.cfp.deadline %}
         <p class="hero-note">{{ site.cfp.label }} open until {{ site.cfp.deadline }}</p>
         {% endif %}
     </div>
@@ -91,6 +98,88 @@ bodyClass: "home-template is-head-left-logo has-cover"
 {% endif %}
 
 <main id="site-main" class="site-main">
+
+    {% if site.tickets.status == "open" and site.tickets.url %}
+    <!-- Ticket Sale Main Call to Action Section -->
+    <section id="tickets" class="outer tickets-cta-section" aria-labelledby="tickets-cta-heading">
+        <div class="inner">
+            <div class="tickets-cta-showcase">
+                <div class="tickets-cta-body">
+                    <div class="tickets-cta-header">
+                        <span class="tickets-live-pill">
+                            <span class="tickets-live-dot" aria-hidden="true"></span>
+                            <span>Tickets On Sale Now</span>
+                        </span>
+                        <h2 id="tickets-cta-heading" class="tickets-cta-title">{{ site.tickets.headline }}</h2>
+                        <p class="tickets-cta-subtitle">
+                            {{ site.tickets.subtitle }}
+                        </p>
+                    </div>
+
+                    <div class="tickets-tier-grid">
+                        <div class="ticket-tier-card is-early-bird">
+                            <div class="ticket-tier-topbar">
+                                <span class="ticket-tier-label">Early Bird</span>
+                                <span class="ticket-tier-tag">Best Price</span>
+                            </div>
+                            <div class="ticket-tier-content">
+                                <ul class="ticket-tier-points">
+                                    <li><strong>Available for 1 week only</strong></li>
+                                    <li>Get the best price before the Early Bird window closes</li>
+                                    <li>Full access to all talks, workshops, Vibe Lounge &amp; exhibitors</li>
+                                </ul>
+                                <a class="ticket-tier-btn is-green" href="{{ site.tickets.url }}" target="_blank" rel="noopener">
+                                    <span>Buy Early Bird Ticket</span>
+                                    <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="ticket-tier-card is-regular">
+                            <div class="ticket-tier-topbar">
+                                <span class="ticket-tier-label">Regular Ticket</span>
+                                <span class="ticket-tier-tag">Don't Wait!</span>
+                            </div>
+                            <div class="ticket-tier-content">
+                                <ul class="ticket-tier-points">
+                                    <li><strong>Available for 1 week only</strong> following Early Bird</li>
+                                    <li>Secure your spot today before tickets sell out</li>
+                                    <li>Full access to all talks, workshops, Vibe Lounge &amp; exhibitors</li>
+                                </ul>
+                                <a class="ticket-tier-btn is-blue" href="{{ site.tickets.url }}" target="_blank" rel="noopener">
+                                    <span>Buy Regular Ticket</span>
+                                    <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="tickets-pillars" aria-label="Included in your ticket">
+                        <span class="ticket-pillar is-green"><span class="pillar-dot"></span>Speakers</span>
+                        <span class="ticket-pillar is-red"><span class="pillar-dot"></span>Workshops</span>
+                        <span class="ticket-pillar is-yellow"><span class="pillar-dot"></span>Exhibitors</span>
+                        <span class="ticket-pillar is-blue"><span class="pillar-dot"></span>Vibe Lounge &amp; Networking</span>
+                    </div>
+                </div>
+
+                {% if site.tickets.image %}
+                <div class="tickets-cta-visual">
+                    <a class="tickets-poster-link" href="{{ site.tickets.url }}" target="_blank" rel="noopener" aria-label="Get DevFest Berlin 2026 tickets on GDG Community">
+                        <img
+                            src="{{ site.tickets.image }}"
+                            alt="DevFest Berlin 2026 Tickets On Sale: Early Bird (Get Best Price) and Regular (Don't Wait!) for Speakers, Workshops, and Exhibitors"
+                            width="816"
+                            height="1024"
+                            loading="eager"
+                            class="tickets-poster-img"
+                        />
+                    </a>
+                </div>
+                {% endif %}
+            </div>
+        </div>
+    </section>
+    {% endif %}
 
     <!-- Newsletter / Subscribe Call to Action -->
     <section id="subscribe" class="footer-cta outer subscribe-section">
@@ -600,10 +689,15 @@ bodyClass: "home-template is-head-left-logo has-cover"
                 </details>
 
                 <details class="faq-item">
-                    <summary>When will ticket sales go live?</summary>
+                    <summary>Are tickets on sale now? How do Early Bird and Regular tickets work?</summary>
                     <div class="faq-answer">
                         <p>
-                            Ticket registration will open soon. Sign up via the <a href="/#subscribe">newsletter above</a> to be notified the moment Early Bird tickets go on sale.
+                            Yes! Tickets for DevFest Berlin 2026 are on sale now via our <a href="{{ site.tickets.url }}" target="_blank" rel="noopener">official GDG Berlin event page</a>:
+                        </p>
+                        <p>
+                            &bull; <strong>Early Bird:</strong> Available for <strong>1 week only</strong> (Best price!).<br>
+                            &bull; <strong>Regular Ticket:</strong> Available for <strong>1 week only</strong> following Early Bird.<br>
+                            Secure your spot today before tickets sell out.
                         </p>
                     </div>
                 </details>

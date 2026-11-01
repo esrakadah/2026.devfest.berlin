@@ -6,6 +6,7 @@ permalink: /agenda/
 ---
 
 {% set cfpOpen = site.cfp.status == "open" and site.cfp.url %}
+{% set ticketsOpen = site.tickets.status == "open" and site.tickets.url %}
 
 <div class="agenda-page-intro">
     <p>
@@ -15,18 +16,27 @@ permalink: /agenda/
     </p>
 </div>
 
-{% if cfpOpen %}
+{% if ticketsOpen or cfpOpen %}
 <div class="agenda-status-banner">
     <div class="agenda-status-content">
-        <span class="venue-badge">Call for Speakers Open</span>
-        <h3>Speaker lineup &amp; session slots announcing in early November</h3>
+        <span class="venue-badge">{% if ticketsOpen %}Tickets On Sale Now{% else %}Call for Speakers Open{% endif %}</span>
+        <h3>{% if ticketsOpen %}Secure your ticket for November 14 at SRH Berlin{% else %}Speaker lineup &amp; session slots announcing in early November{% endif %}</h3>
         <p>
+            {% if ticketsOpen %}
+            <strong>Early Bird tickets</strong> are available for 1 week only (best price!), followed by 1 week of Regular tickets.
+            {% endif %}
+            {% if cfpOpen %}
             Our Call for Speakers on Sessionize is open until <strong>{{ site.cfp.deadline }} at 23:59 CET</strong>.
-            The content committee is reviewing submissions across AI, Cloud, Mobile, Career, and Hardware tracks.
+            {% endif %}
         </p>
     </div>
     <div class="agenda-status-actions">
-        <a class="sponsor-button" href="{{ site.cfp.url }}" target="_blank" rel="noopener">{{ site.cfp.buttonText }}</a>
+        {% if ticketsOpen %}
+        <a class="sponsor-button" href="{{ site.tickets.url }}" target="_blank" rel="noopener">{{ site.tickets.buttonText }}</a>
+        {% endif %}
+        {% if cfpOpen %}
+        <a class="{% if ticketsOpen %}venue-btn is-calendar{% else %}sponsor-button{% endif %}" href="{{ site.cfp.url }}" target="_blank" rel="noopener">{{ site.cfp.buttonText }}</a>
+        {% endif %}
         <a class="venue-btn is-calendar" href="{{ site.calendarUrl }}" target="_blank" rel="noopener">Add Date to Calendar</a>
     </div>
 </div>
